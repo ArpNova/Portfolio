@@ -176,10 +176,10 @@ Feel free to reach out!`; break;
 
   return (
     <div
-      className="bg-black text-white font-mono h-full w-full p-4 overflow-y-auto text-sm md-text-base"
+      className="bg-black text-white font-mono h-full w-full p-4 overflow-y-auto text-sm md:text-base"
       ref={terminalBodyRef}
     >
-      <pre className="text-green-400 whitespace-pre-wrap text-xs">{welcomeMessage}</pre>
+      <pre className="text-green-400 whitespace-pre-wrap text-[6px] sm:text-[8px] md:text-xs">{welcomeMessage}</pre>
       
       <div>
         {history.map((entry, index) => (
