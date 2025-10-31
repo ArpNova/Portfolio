@@ -117,7 +117,7 @@ LinkedIn:
 X:
 
 Feel free to reach out!`; break;
-      case 'education': output = `asdfghj`; break;
+      case 'education': output = `BTech 2nd Year`; break;
       case 'clear':
         setHistory([]);
         setWelcomeMessage('');
