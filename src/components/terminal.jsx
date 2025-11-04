@@ -101,7 +101,37 @@ My Focus:
 When I'm not coding, I enjoy diving into novels and learning about spirituality.
 
 Feel free to explore more using the 'projects', 'skills', or 'contact' commands!`; break;
-      case 'projects': output = `Here are some of my projects:\n- Project 1: ...\n- Project 2: ...`; break;
+
+
+      case 'projects':
+        output = (
+          <div>
+            <p className="text-yellow-300 font-semibold mb-2">Here are some of my projects:</p>
+
+            <p className="mt-2">
+              🎮 <span className="font-semibold text-green-400">Tic-Tac-Toe</span><br />
+              A real-time multiplayer game built with <span className="text-blue-400">WebSockets</span>. <br />
+              Players can create rooms, share room codes with friends, and enjoy online matches.<br />
+              <span className="italic text-gray-400">Tech Stack:</span> React (Vercel) + Node.js + Socket.IO
+            </p>
+
+            <p className="mt-3">
+              🔗 <a
+                href="https://arpanstictactoe.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-400 hover:underline"
+              >
+                Live Demo
+              </a>{' '}
+              
+            </p>
+          </div>
+        );
+        break;
+
+
+
       case 'skills': output = `> Displaying skill set...
 
 * Languages:          JavaScript, TypeScript, C, C++, Python, Rust, Solidity
