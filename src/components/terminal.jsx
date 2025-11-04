@@ -197,7 +197,9 @@ Feel free to explore more using the 'projects', 'skills', or 'contact' commands!
         );
         break;
 
-      case 'education': output = `BTech 2nd Year`; break;
+      case 'education': output = `Bachelor of Technology (B.Tech) in Computer Science and Engineering  
+2nd Year | Kalyani Government Engineering College
+`; break;
       case 'clear':
         setHistory([]);
         setWelcomeMessage('');
