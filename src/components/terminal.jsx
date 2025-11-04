@@ -109,14 +109,64 @@ Feel free to explore more using the 'projects', 'skills', or 'contact' commands!
 * Backend:            Node.js, Express.js, Flask, FastAPI
 * Database:           MongoDB
 * DevOps & Tooling:   Docker, CI/CD, Git, GitHub`; break;
-      case 'contact': output = `Get In Touch:
 
-Email: contactarpan912@gmail.com
-GitHub: 
-LinkedIn:
-X:
 
-Feel free to reach out!`; break;
+      case 'contact':
+        output = (
+          <div>
+            <p className="text-yellow-300 font-semibold mb-2">Get In Touch:</p>
+
+            <p>
+              Email:{' '}
+              <a
+                href="mailto:contactarpan912@gmail.com"
+                className="text-blue-400 hover:underline"
+              >
+                contactarpan912@gmail.com
+              </a>
+            </p>
+
+            <p>
+              GitHub:{' '}
+              <a
+                href="https://github.com/ArpNova"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-400 hover:underline"
+              >
+                github.com/arpnova
+              </a>
+            </p>
+
+            <p>
+              LinkedIn:{' '}
+              <a
+                href="https://www.linkedin.com/in/arpanbiswas9126"
+                target="_blank"
+                // rel="noopener noreferrer"
+                className="text-blue-400 hover:underline"
+              >
+                /in/arpan-biswas
+              </a>
+            </p>
+
+            <p>
+               X :{' '}
+              <a
+                href="https://x.com/arpan_sol"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-400 hover:underline"
+              >
+                @arpan_sol
+              </a>
+            </p>
+
+            <p className="mt-2">Feel free to reach out!</p>
+          </div>
+        );
+        break;
+
       case 'education': output = `BTech 2nd Year`; break;
       case 'clear':
         setHistory([]);
