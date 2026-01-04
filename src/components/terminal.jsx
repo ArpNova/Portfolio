@@ -1,5 +1,5 @@
-import { useState, useRef, useEffect } from 'react';
-import { div } from 'three/tsl';
+import { useState, useRef, useEffect } from "react";
+import { div } from "three/tsl";
 
 const asciiArtName = `
    █████████   ███████████   ███████████    █████████   ██████   █████       
@@ -24,22 +24,30 @@ const asciiArtName = `
 
 `;
 
-const commandList = ['help', 'about', 'projects', 'skills', 'contact', 'education', 'clear'];
+const commandList = [
+  "help",
+  "about",
+  "projects",
+  "skills",
+  "contact",
+  "education",
+  "clear",
+];
 const commandListToShow = [
-  'help      - To see available commands',
-  'about     - Learn about me',
-  'projects  - View my projects',
-  'skills    - See my technical skills',
-  'contact   - How to reach me',
-  'education - My educational background',
-  'clear     - Clear the terminal'
+  "help      - To see available commands",
+  "about     - Learn about me",
+  "projects  - View my projects",
+  "skills    - See my technical skills",
+  "contact   - How to reach me",
+  "education - My educational background",
+  "clear     - Clear the terminal",
 ];
 
 // --- TERMINAL COMPONENT ---
 const Terminal = () => {
-  const [welcomeMessage, setWelcomeMessage] = useState('');
+  const [welcomeMessage, setWelcomeMessage] = useState("");
   const [history, setHistory] = useState([]);
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState("");
   const [commandHistory, setCommandHistory] = useState([]);
   const [historyIndex, setHistoryIndex] = useState(-1);
   const [showWelcome, setShowWelcome] = useState(true);
@@ -54,22 +62,31 @@ const Terminal = () => {
       const typingInterval = setInterval(() => {
         if (i >= asciiArtName.length) {
           clearInterval(typingInterval);
-          
-          setHistory([{ 
-            output: (
-              <>
-                <div>
-                  <p>
-                  Initializing arpan@portfolio:~$... <br />System ready. <p className='text-blue-600 font-bold'>Welcome, user.</p> <br /> <br />I'm Arpan Biswas, a Computer Science Student. <br />To begin, type 'help' and press Enter.
-                  </p>
-                </div>
-              </>
-            )
-          }]);
+
+          setHistory([
+            {
+              output: (
+                <>
+                  <div>
+                    <p>
+                      Initializing arpan@portfolio:~$... <br />
+                      System ready.{" "}
+                      <p className="text-blue-600 font-bold">
+                        Welcome, user.
+                      </p>{" "}
+                      <br /> <br />
+                      I'm Arpan Biswas, a Computer Science Student. <br />
+                      To begin, type 'help' and press Enter.
+                    </p>
+                  </div>
+                </>
+              ),
+            },
+          ]);
           setShowWelcome(false);
         } else {
           const chunk = asciiArtName.slice(i, i + chunkSize);
-          setWelcomeMessage(prev => prev + chunk);
+          setWelcomeMessage((prev) => prev + chunk);
           i += chunkSize;
         }
       }, 10);
@@ -78,17 +95,28 @@ const Terminal = () => {
     }
   }, [showWelcome]);
 
-  
-  useEffect(() => { const handleClick = () => inputRef.current?.focus(); const terminalElement = terminalBodyRef.current; terminalElement?.addEventListener('click', handleClick); return () => terminalElement?.removeEventListener('click', handleClick); }, []);
-  useEffect(() => { if (terminalBodyRef.current) { terminalBodyRef.current.scrollTop = terminalBodyRef.current.scrollHeight; } }, [history, welcomeMessage]);
-  
+  useEffect(() => {
+    const handleClick = () => inputRef.current?.focus();
+    const terminalElement = terminalBodyRef.current;
+    terminalElement?.addEventListener("click", handleClick);
+    return () => terminalElement?.removeEventListener("click", handleClick);
+  }, []);
+  useEffect(() => {
+    if (terminalBodyRef.current) {
+      terminalBodyRef.current.scrollTop = terminalBodyRef.current.scrollHeight;
+    }
+  }, [history, welcomeMessage]);
+
   // Command processing logic
   const handleCommand = (command) => {
     const cmd = command.trim();
-    let output = '';
+    let output = "";
     switch (cmd) {
-      case 'help': output = `Available commands:\n- ${commandListToShow.join('\n- ')}`; break;
-      case 'about': output = `👋 Hello, I'm Arpan Biswas!
+      case "help":
+        output = `Available commands:\n- ${commandListToShow.join("\n- ")}`;
+        break;
+      case "about":
+        output = `👋 Hello, I'm Arpan Biswas!
 
 I'm a Computer Science Student, with a passion for full-stack development and the decentralized web.
 
@@ -100,54 +128,60 @@ My Focus:
 
 When I'm not coding, I enjoy diving into novels and learning about spirituality.
 
-Feel free to explore more using the 'projects', 'skills', or 'contact' commands!`; break;
+Feel free to explore more using the 'projects', 'skills', or 'contact' commands!`;
+        break;
 
-
-      case 'projects':
+      case "projects":
         output = (
           <div>
-            <p className="text-yellow-300 font-semibold mb-2">Here are some of my projects:</p>
+            <p className="text-yellow-300 font-semibold mb-2">
+              Here are some of my projects:
+            </p>
 
             <p className="mt-2">
-              🎮 <span className="font-semibold text-green-400">Tic-Tac-Toe</span><br />
-              A real-time multiplayer game built with <span className="text-blue-400">WebSockets</span>. <br />
-              Players can create rooms, share room codes with friends, and enjoy online matches.<br />
-              <span className="italic text-gray-400">Tech Stack:</span> React (Vercel) + Node.js + Socket.IO
+              🎮{" "}
+              <span className="font-semibold text-green-400">Tic-Tac-Toe</span>
+              <br />A real-time multiplayer game built with{" "}
+              <span className="text-blue-400">WebSockets</span>. <br />
+              Players can create rooms, share room codes with friends, and enjoy
+              online matches.
+              <br />
+              <span className="italic text-gray-400">Tech Stack:</span> React
+              (Vercel) + Node.js + Socket.IO
             </p>
 
             <p className="mt-3">
-              🔗 <a
+              🔗{" "}
+              <a
                 href="https://arpanstictactoe.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-400 hover:underline"
               >
                 Live Demo
-              </a>{' '}
-              
+              </a>{" "}
             </p>
           </div>
         );
         break;
 
-
-
-      case 'skills': output = `> Displaying skill set...
+      case "skills":
+        output = `> Displaying skill set...
 
 * Languages:          JavaScript, TypeScript, C, C++, Python, Rust, Solidity
 * Frontend:           React, Next.js, Vanilla JS, Tailwind CSS
 * Backend:            Node.js, Express.js, Flask, FastAPI
 * Database:           MongoDB
-* DevOps & Tooling:   Docker, CI/CD, Git, GitHub`; break;
+* DevOps & Tooling:   Docker, CI/CD, Git, GitHub`;
+        break;
 
-
-      case 'contact':
+      case "contact":
         output = (
           <div>
             <p className="text-yellow-300 font-semibold mb-2">Get In Touch:</p>
 
             <p>
-              Email:{' '}
+              Email:{" "}
               <a
                 href="mailto:contactarpan912@gmail.com"
                 className="text-blue-400 hover:underline"
@@ -157,7 +191,7 @@ Feel free to explore more using the 'projects', 'skills', or 'contact' commands!
             </p>
 
             <p>
-              GitHub:{' '}
+              GitHub:{" "}
               <a
                 href="https://github.com/ArpNova"
                 target="_blank"
@@ -169,7 +203,7 @@ Feel free to explore more using the 'projects', 'skills', or 'contact' commands!
             </p>
 
             <p>
-              LinkedIn:{' '}
+              LinkedIn:{" "}
               <a
                 href="https://www.linkedin.com/in/arpanbiswas9126"
                 target="_blank"
@@ -181,7 +215,7 @@ Feel free to explore more using the 'projects', 'skills', or 'contact' commands!
             </p>
 
             <p>
-               X :{' '}
+              X :{" "}
               <a
                 href="https://x.com/arpan_sol"
                 target="_blank"
@@ -197,18 +231,23 @@ Feel free to explore more using the 'projects', 'skills', or 'contact' commands!
         );
         break;
 
-      case 'education': output = `Bachelor of Technology (B.Tech) in Computer Science and Engineering  
+      case "education":
+        output = `Bachelor of Technology (B.Tech) in Computer Science and Engineering  
 2nd Year | Kalyani Government Engineering College
-`; break;
-      case 'clear':
+`;
+        break;
+      case "clear":
         setHistory([]);
-        setWelcomeMessage('');
+        setWelcomeMessage("");
         setShowWelcome(true);
         return;
-      case '': break;
-      default: output = `${command}: command not found`; break;
+      case "":
+        break;
+      default:
+        output = `${command}: command not found`;
+        break;
     }
-    setHistory(prevHistory => [...prevHistory, { command, output }]);
+    setHistory((prevHistory) => [...prevHistory, { command, output }]);
   };
 
   // Handles form submission
@@ -221,19 +260,19 @@ Feel free to explore more using the 'projects', 'skills', or 'contact' commands!
       setHistoryIndex(newCommandHistory.length);
     }
     handleCommand(command);
-    setInput('');
+    setInput("");
   };
 
   // Handles key presses
   const handleKeyDown = (e) => {
-    if (e.key === 'Tab') {
+    if (e.key === "Tab") {
       e.preventDefault();
       const currentWord = input.trim();
-      const matches = commandList.filter(cmd => cmd.startsWith(currentWord));
+      const matches = commandList.filter((cmd) => cmd.startsWith(currentWord));
       if (matches.length === 1) {
-        setInput(matches[0] + ' ');
+        setInput(matches[0] + " ");
       }
-    } else if (e.key === 'ArrowUp') {
+    } else if (e.key === "ArrowUp") {
       e.preventDefault();
       if (historyIndex > 0) {
         const newIndex = historyIndex - 1;
@@ -243,7 +282,7 @@ Feel free to explore more using the 'projects', 'skills', or 'contact' commands!
         setHistoryIndex(0);
         setInput(commandHistory[0]);
       }
-    } else if (e.key === 'ArrowDown') {
+    } else if (e.key === "ArrowDown") {
       e.preventDefault();
       if (historyIndex < commandHistory.length - 1) {
         const newIndex = historyIndex + 1;
@@ -251,7 +290,7 @@ Feel free to explore more using the 'projects', 'skills', or 'contact' commands!
         setInput(commandHistory[newIndex]);
       } else {
         setHistoryIndex(commandHistory.length);
-        setInput('');
+        setInput("");
       }
     }
   };
@@ -261,23 +300,23 @@ Feel free to explore more using the 'projects', 'skills', or 'contact' commands!
       className="bg-black text-white font-mono h-full w-full p-4 overflow-y-auto text-sm md:text-base"
       ref={terminalBodyRef}
     >
-      <pre className="text-green-400 whitespace-pre-wrap text-[6px] sm:text-[8px] md:text-xs">{welcomeMessage}</pre>
-      
+      <pre className="text-green-400 whitespace-pre-wrap text-[6px] sm:text-[8px] md:text-xs">
+        {welcomeMessage}
+      </pre>
+
       <div>
         {history.map((entry, index) => (
           <div key={index}>
-            
             {entry.command && (
               <div className="flex">
                 <span className="text-green-400">arpan@portfolio:~$</span>
                 <p className="flex-1 ml-2">{entry.command}</p>
               </div>
             )}
-            
-           
+
             {entry.output && (
               <div className="text-gray-300 whitespace-pre-wrap">
-                {typeof entry.output === 'string' ? entry.output : entry.output}
+                {typeof entry.output === "string" ? entry.output : entry.output}
               </div>
             )}
           </div>
@@ -285,7 +324,9 @@ Feel free to explore more using the 'projects', 'skills', or 'contact' commands!
       </div>
 
       <form onSubmit={handleSubmit} className="flex">
-        <label htmlFor="terminal-input" className="text-green-400">arpan@portfolio:~$</label>
+        <label htmlFor="terminal-input" className="text-green-400">
+          arpan@portfolio:~$
+        </label>
         <input
           ref={inputRef}
           id="terminal-input"
@@ -301,6 +342,6 @@ Feel free to explore more using the 'projects', 'skills', or 'contact' commands!
       </form>
     </div>
   );
-}
+};
 
 export default Terminal;
