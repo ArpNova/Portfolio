@@ -139,6 +139,30 @@ Feel free to explore more using the 'projects', 'skills', or 'contact' commands!
             </p>
 
             <p className="mt-2">
+              🎮 <span className="font-semibold text-green-400">arsh</span>
+              <br />A Custom Unix Shell in{" "}
+              <span className="text-blue-400">C</span>. <br />
+              Overview: A robust, custom implementation of a Unix shell built
+              from scratch to demonstrate mastery of low-level systems
+              programming. arsh features a fully functional interactive REPL
+              capable of handling complex process management tasks.
+              <br />
+              <span className="italic text-gray-400">Tech Stack:</span> C
+            </p>
+
+            <p className="mt-3">
+              🔗{" "}
+              <a
+                href="https://github.com/ArpNova/arsh"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-400 hover:underline"
+              >
+                GitHub
+              </a>{" "}
+            </p>
+
+            <p className="mt-2">
               🎮{" "}
               <span className="font-semibold text-green-400">Tic-Tac-Toe</span>
               <br />A real-time multiplayer game built with{" "}
