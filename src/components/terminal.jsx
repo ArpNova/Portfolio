@@ -139,7 +139,7 @@ Feel free to explore more using the 'projects', 'skills', or 'contact' commands!
             </p>
 
             <p className="mt-2">
-              🎮 <span className="font-semibold text-green-400">arsh</span>
+              <span className="font-semibold text-green-400">arsh</span>
               <br />A Custom Unix Shell in{" "}
               <span className="text-blue-400">C</span>. <br />
               Overview: A robust, custom implementation of a Unix shell built
@@ -160,6 +160,7 @@ Feel free to explore more using the 'projects', 'skills', or 'contact' commands!
               >
                 GitHub
               </a>{" "}
+              <br />
             </p>
 
             <p className="mt-2">
