@@ -76,3 +76,9 @@ Once the portfolio is loaded, you can use the following commands in the terminal
 
 ---
 *Built with love by Arpan Biswas*
+
+## License & Assets
+
+The source code is licensed under the [MIT License](./LICENSE).
+
+All images, personal photos, and branding assets are © **Arpan Biswas** and may not be reused without permission.
